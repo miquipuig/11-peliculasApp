@@ -3,16 +3,27 @@ import { NgModule } from '@angular/core';
  
 import { AppComponent } from './app.component';
 //import { HttpModule } from '@angular/https';
-import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';//para hacer un rest
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
+import { PeliculaComponent } from './components/pelicula/pelicula.component';
+
+import { AppRoutingModule } from './app.routes';
  
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    NavbarComponent,
+    BuscadorComponent,
+    PeliculaComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
