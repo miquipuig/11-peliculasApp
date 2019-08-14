@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
- 
+//import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppComponent } from './app.component';
 //import { HttpModule } from '@angular/https';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
