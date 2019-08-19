@@ -7,22 +7,44 @@ import { PeliculasService } from '../../services/peliculas.service';
 })
 export class HomeComponent implements OnInit {
 
-  peliculas: any[] = [];
+  populares: any[] = [];
+  cartelera: any[] = [];
+  kids: any[] = [];
   loading: boolean;
+  carga: number;
   constructor( private peliculaService: PeliculasService ) {
 
-    // this.loading = true;
-    // peliculaService.getPopulares().subscribe(data=>{
-    // console.log(data)})
+    this.loading = true;
+    this.carga = 0;
 
     peliculaService.getPopulares().subscribe((data: any) => {
-    this.peliculas = data;
-    this.loading= false;
-    })
+    this.populares = data;
+    this.carga++;
+    this.loadingD();
+    });
+
+    peliculaService.getEnCartelera().subscribe(data => {
+      this.cartelera = data;
+      this.carga++;
+      this.loadingD();
+    });
+
+    peliculaService.getKids().subscribe(data => {
+      this.kids = data;
+      this.carga++;
+      this.loadingD();
+
+    });
 
    }
 
   ngOnInit() {
   }
 
+  loadingD() {
+    if (this.carga >= 3 ) {
+
+      this.loading = false;
+    }
+  }
 }

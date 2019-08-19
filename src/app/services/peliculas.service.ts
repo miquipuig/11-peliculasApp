@@ -17,14 +17,26 @@ private urlMoviedb:string = "https://api.themoviedb.org/3";
   constructor( private jsonp:JsonpClientBackend, private http:HttpClient) {  }
 
   getPopulares(){
-    let url =`${this.urlMoviedb}/discover/movie?sort_by=popularity.desc&api_key=${this.apikey}&language=es`
+    let url =`${this.urlMoviedb}/discover/movie?sort_by=popularity.desc&api_key=${this.apikey}&language=es`;
     return this.http.get(url).pipe(map(res=>res['results']));
-    //.map(res=>res.json());
+  }
+  
+  getEnCartelera() {
+    let yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() -15);
+    let dateG = yesterday.getFullYear()+'-'+(yesterday.getMonth()+1)+'-'+yesterday.getDate();
+    let tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 15);
+    let dateL = tomorrow.getFullYear()+'-'+(tomorrow.getMonth()+1)+'-'+tomorrow.getDate();
+    console.log(dateG);
+    console.log(dateL);
 
-    //return this.http.get(`${this.urlMoviedb}/discover/movie?sort_by=popularity.desc&api_key=${this.apikey}&language=es`);
-    //.pipe(map( //(res)=> res.json()
-    //.pipe(map( (res)=> res));
- 
-   // return this.http.jsonp(`${this.urlMoviedb}/discover/movie?sort_by=popularity.desc&api_key=${this.apikey}&language=es`, "callback");
-  }    
+    let url =`${this.urlMoviedb}/discover/movie?sort_by=popularity.desc&primary_release_date.gte=${dateG}&primary_release_date.lte=${dateL}&api_key=${this.apikey}&language=es`;
+    return this.http.get(url).pipe(map(res=>res['results']));
+ }
+
+ getKids(){
+  let url =`${this.urlMoviedb}/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${this.apikey}&language=es`;
+  return this.http.get(url).pipe(map(res=>res['results']));
+  }
 }
