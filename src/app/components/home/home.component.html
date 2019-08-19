@@ -9,9 +9,9 @@
     <br>
 
     <app-loading *ngIf="loading"></app-loading>
-    <app-peliculas-grupo *ngIf="loading==false" [titulo]="'Populares'" [peliculas]="populares"></app-peliculas-grupo>
-    <app-peliculas-grupo *ngIf="loading==false" [titulo]="'Cartelera'" [peliculas]="cartelera"></app-peliculas-grupo>
-    <app-peliculas-grupo *ngIf="loading==false" [titulo]="'Películas para niños'" [peliculas]="kids"></app-peliculas-grupo>
+    <app-peliculas-grupo (peliculaSeleccionada)="verPelicula( $event )" *ngIf="loading==false" [titulo]="'Populares'" [peliculas]="populares"></app-peliculas-grupo>
+    <app-peliculas-grupo (peliculaSeleccionada)="verPelicula( $event )" *ngIf="loading==false" [titulo]="'Cartelera'" [peliculas]="cartelera"></app-peliculas-grupo>
+    <app-peliculas-grupo (peliculaSeleccionada)="verPelicula( $event )" *ngIf="loading==false" [titulo]="'Películas para niños'" [peliculas]="kids"></app-peliculas-grupo>
 
     <!-- <div class="row">
          

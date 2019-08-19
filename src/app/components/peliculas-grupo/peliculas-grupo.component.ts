@@ -10,9 +10,19 @@ export class PeliculasGrupoComponent implements OnInit {
 
   @Input() peliculas: any[] = [];
   @Input() titulo: string;
-  constructor() { }
+  @Output() peliculaSeleccionada: EventEmitter<number>;
+  constructor( private router: Router) {
+      this.peliculaSeleccionada = new EventEmitter();
+  }
+
 
   ngOnInit() {
+  }
+
+  verPelicula(id: number) {
+
+    this.peliculaSeleccionada.emit( this.peliculas[id].id );
+    // this.router.navigate( ['/pelicula', this.peliculas[id].id] );
   }
 
 }

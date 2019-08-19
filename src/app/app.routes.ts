@@ -8,7 +8,7 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 
 const routes: Routes = [
   { path: 'home'    , component: HomeComponent },
-  { path: 'pelicula', component: PeliculaComponent },
+  { path: 'pelicula/:id', component: PeliculaComponent },
   { path: 'buscar'   , component: BuscadorComponent },
   { path: '**', redirectTo: 'home' }
 ];

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PeliculasService } from '../../services/peliculas.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ export class HomeComponent implements OnInit {
   kids: any[] = [];
   loading: boolean;
   carga: number;
-  constructor( private peliculaService: PeliculasService ) {
+ 
+  constructor( private peliculaService: PeliculasService , private router: Router) {
 
     this.loading = true;
     this.carga = 0;
@@ -46,5 +48,9 @@ export class HomeComponent implements OnInit {
 
       this.loading = false;
     }
+  }
+
+  verPelicula( id: number ) {
+    this.router.navigate( ['/pelicula', id] );
   }
 }
