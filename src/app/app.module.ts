@@ -10,6 +10,8 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
 
 import { AppRoutingModule } from './app.routes';
+import { PeliculasGrupoComponent } from './components/peliculas-grupo/peliculas-grupo.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
  
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AppRoutingModule } from './app.routes';
     HomeComponent,
     NavbarComponent,
     BuscadorComponent,
-    PeliculaComponent
+    PeliculaComponent,
+    PeliculasGrupoComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

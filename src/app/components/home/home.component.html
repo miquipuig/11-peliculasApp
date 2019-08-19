@@ -8,11 +8,10 @@
 <div class="container">
     <br>
 
-    <h1>Cartelera</h1>
-    <hr>
-
-    <div class="row">
-
+    <app-loading *ngIf="loading"></app-loading>
+    <app-peliculas-grupo *ngIf="loading==false" [titulo]="'Cartelera'" [peliculas]="peliculas"></app-peliculas-grupo>
+    <!-- <div class="row">
+         
         <div class="col-sm-6" *ngFor="let pelicula of peliculas; let i = index">
 
             <div class="row">
@@ -20,25 +19,7 @@
                     <p class="pic-titulo">{{pelicula.title}}</p>
                 </div>
             </div>
-            <!-- 
-            <div class="row">
-                <div class="col-sm-6 div-pic-2" [ngStyle]="{ 'background-image': 'url( http://image.tmdb.org/t/p/w500/'+pelicula.backdrop_path+'  )'  }">
-                    <p class="pic-titulo">{{pelicula.title}}</p>
-                </div>
-                <div class="col-sm-6 div-pic-2" [ngStyle]="{ 'background-image': 'url( http://image.tmdb.org/t/p/w500/'+pelicula.backdrop_path+' )'  }">
-                    <p class="pic-titulo">{{pelicula.title}}</p>
-                </div>
-            </div> -->
-
-        </div>
-
-
-
-
-
-
-
-    </div>
-
+       </div>
+    </div> -->
 
 </div>
