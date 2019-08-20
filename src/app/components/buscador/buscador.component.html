@@ -1,1 +1,34 @@
-buscador
+<h1>Buscar: <small></small></h1>
+<hr>
+
+<!-- <div class="row animated fadeIn fast">
+    <form class="form-inline my-2 my-lg-0">
+        <input #termino class="form-control mr-sm-2" type="text" placeholder="Buscar película" (keyup.enter)="buscarPelicula(termino.value)">
+        <button (click)="buscarPelicula(termino.value)" class="btn btn-outline-primary my-2 my-sm-0" type="button">Buscar</button>
+    </form>
+</div> -->
+
+<div class="row">
+    <div class="col">
+        <input #termino type="text" (keyup)="buscarPelicula(termino.value)" class="form-control" placeholder="Buscar Artista">
+    </div>
+
+</div>
+<br>
+
+<div class="row animated fadeIn fast" *ngIf="peliculas.length == 0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No existen resultados con el término: {{termino}}
+        </div>
+    </div>
+</div>
+
+
+<div class="card-columns">
+
+    <app-pelicula-tarjeta [pelicula]="foo" [index]="foo.id" *ngFor="let foo of peliculas"></app-pelicula-tarjeta>
+
+
+
+</div>

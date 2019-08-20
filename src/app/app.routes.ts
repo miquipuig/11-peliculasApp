@@ -9,6 +9,7 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 const routes: Routes = [
   { path: 'home'    , component: HomeComponent },
   { path: 'pelicula/:id', component: PeliculaComponent },
+  { path: 'buscar/:termino'   , component: BuscadorComponent },
   { path: 'buscar'   , component: BuscadorComponent },
   { path: '**', redirectTo: 'home' }
 ];

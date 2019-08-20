@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 //import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 //import { HttpModule } from '@angular/https';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
@@ -12,6 +13,7 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { AppRoutingModule } from './app.routes';
 import { PeliculasGrupoComponent } from './components/peliculas-grupo/peliculas-grupo.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { PeliculaTarjetaComponent } from './components/pelicula-tarjeta/pelicula-tarjeta.component';
  
 @NgModule({
   declarations: [
@@ -21,13 +23,16 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     BuscadorComponent,
     PeliculaComponent,
     PeliculasGrupoComponent,
-    LoadingComponent
+    LoadingComponent,
+    PeliculaTarjetaComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

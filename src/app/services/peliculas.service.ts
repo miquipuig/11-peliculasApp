@@ -46,4 +46,11 @@ private urlMoviedb:string = "https://api.themoviedb.org/3";
     console.log(id);
     return this.http.get(url);
   }
+
+  searchFilm( termino: string) {
+    let url = `${this.urlMoviedb}/search/movie?api_key=${this.apikey}&language=es&query=${termino}`;
+    return this.http.get(url).pipe(map(res=>res['results']));
+
+    //https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
+  }
 }
