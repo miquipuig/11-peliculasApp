@@ -6,7 +6,8 @@
 
         <img *ngIf="pelicula.poster_path" [src]="'http://image.tmdb.org/t/p/w500/'+pelicula.poster_path" class="img-fluid" [alt]="pelicula.title">
         <br><br>
-        <a [routerLink]="['/home']" class="btn btn-outline-danger btn-block">Regresar</a>
+        <!-- <a [routerLink]="" (click)="volver()" class="btn btn-outline-danger btn-block">Regresar</a> -->
+        <a *ngIf="carga" [routerLink]="['/' + url, termino]" class="btn btn-outline-danger btn-block">Regresar</a>
 
     </div>
 
@@ -26,10 +27,7 @@
         </div>
         <p>Popularidad: <span class="badge badge-primary">{{pelicula.popularity}}</span>
             <br> Voto Promedio: <span class="badge badge-primary">{{pelicula.vote_average}}</span></p>
-        <div>
-            <img *ngIf="pelicula.title == 'Marvel'" class="img-logo" src="assets/img/marvel-logo.png" alt="DC">
-            <img *ngIf="pelicula.title == 'DC'" class="img-logo" src="assets/img/dc-logo.jpg" alt="Marvel">
-        </div>
+
 
 
     </div>

@@ -1,42 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PeliculasService } from '../../services/peliculas.service';
-
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-buscador',
   templateUrl: './buscador.component.html'
 })
 export class BuscadorComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute, private service: PeliculasService , private router: Router) { }
   peliculas: any[] = [];
   termino: string;
-loading: boolean;
-  ngOnInit() {
-    this.loading = true;
-    this.activatedRoute.params.subscribe( params =>{
+  loading: boolean;
 
-      //console.log(params['termino']);
-      this.termino = params['termino'];
-      console.log(this.termino);
+  constructor(private activatedRoute: ActivatedRoute, private service: PeliculasService , private router: Router) { 
+  this.termino = '';
+  }
+ 
+  ngOnInit() {
+
+    this.activatedRoute.params.subscribe( params => {
 
       if(params['termino']){
-      this.service.searchFilm(params['termino']).subscribe(data =>{
-        this.peliculas = data;
-        this.loading = false;
-      });
+      this.termino = params['termino'];
+      this.buscarPelicula();
+
 
       } else {
         this.peliculas = [];
-        this.loading = false;
-        
+
       }
 
     });
   }
-  buscarPelicula( termino: string) {
+  buscarPelicula() {
 
-    this.router.navigate( ['/buscar', termino]);
+    //this.router.navigate( ['/buscar', termino]);
+
+    if (this.termino) {
+      this.loading = true;
+      this.service.searchFilm(this.termino).subscribe(data => {
+        this.peliculas = data;
+        this.loading = false;
+      });
+    }
   }
 
 }

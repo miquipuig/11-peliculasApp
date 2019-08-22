@@ -2,9 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 //import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-//import { HttpModule } from '@angular/https';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+
+
+
+
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
@@ -31,7 +35,8 @@ import { PeliculaTarjetaComponent } from './components/pelicula-tarjeta/pelicula
     HttpClientModule,
     HttpClientJsonpModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

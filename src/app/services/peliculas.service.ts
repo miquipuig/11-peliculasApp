@@ -28,8 +28,7 @@ private urlMoviedb:string = "https://api.themoviedb.org/3";
     let tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 15);
     let dateL = tomorrow.getFullYear()+'-'+(tomorrow.getMonth()+1)+'-'+tomorrow.getDate();
-    console.log(dateG);
-    console.log(dateL);
+
 
     let url =`${this.urlMoviedb}/discover/movie?sort_by=popularity.desc&primary_release_date.gte=${dateG}&primary_release_date.lte=${dateL}&api_key=${this.apikey}&language=es`;
     return this.http.get(url).pipe(map(res=>res['results']));
@@ -43,7 +42,6 @@ private urlMoviedb:string = "https://api.themoviedb.org/3";
   getFilm( id: string) {
     //https://api.themoviedb.org/3/movie/{external_id}?api_key=<<api_key>>&language=en-US&external_source=imdb_id
     let url = `${this.urlMoviedb}/movie/${id}?api_key=${this.apikey}&language=es`;
-    console.log(id);
     return this.http.get(url);
   }
 

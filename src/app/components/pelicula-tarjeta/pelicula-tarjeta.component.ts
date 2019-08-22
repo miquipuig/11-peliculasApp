@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class PeliculaTarjetaComponent implements OnInit {
   @Input() pelicula: any = {};
   @Input() index: number;
-
+  @Input() termino: string;
   @Output() peliculaSeleccionada: EventEmitter<number>;
   constructor(private router: Router) { 
     this.peliculaSeleccionada = new EventEmitter();
@@ -21,7 +21,7 @@ export class PeliculaTarjetaComponent implements OnInit {
 
   verPelicula() {
     // console.log(  this.index );
-    this.router.navigate( ['/pelicula', this.pelicula.id] );
+    this.router.navigate( ['/pelicula', this.pelicula.id, 'buscar', this.termino ] );
     // this.heroeSeleccionado.emit( this.index );
   }
 }

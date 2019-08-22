@@ -51,6 +51,6 @@ export class HomeComponent implements OnInit {
   }
 
   verPelicula( id: number ) {
-    this.router.navigate( ['/pelicula', id] );
+    this.router.navigate( ['/pelicula', id, 'home'] );
   }
 }
